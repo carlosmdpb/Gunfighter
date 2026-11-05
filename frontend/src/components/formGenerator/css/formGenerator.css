@@ -1,0 +1,219 @@
+:root {
+  --color-input: #d2b48c;
+  --color-label: #ffffff;
+  --color-btn-disabled: #5757577e;
+  --color-error: #cc0033;
+  --color-error-background: #fce4e4;
+  --color-border-disabled: #706c6c;
+  --main-button-hover-dark-color: #8b4513;
+  --main-button-hover-light-color: #8b4513;
+  --main-button-shadow-hover-color: rgba(0, 0, 0, 0.4);
+  --main-black: #111;
+  --input-border-color: #0000003d;
+}
+
+body {
+  font-family: 'Cedarville Cursive', cursive;
+  background-color: #f8f4e3;
+  color: #4d2e0a;
+}
+
+/* FORM */
+
+.class-profile-form {
+  position: relative;
+  width: 100%; /* Ajusta el tamaño del formulario para que sea más cuadrado */
+  background-color: rgba(210, 180, 140, 0.8); /* Fondo semitransparente */
+  border: 5px solid #00000031; /* Borde estilo western */
+  padding: 20px;
+  border-radius: 10px; /* Esquinas redondeadas */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.class-profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid var(--main-button-hover-dark-color);
+}
+
+.class-form > * {
+  width: 100%;
+  margin-top: 5%;
+}
+
+.class-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.class-form-group {
+  position: relative;
+  width: 100%; /* Asegura que los grupos de formulario ocupen todo el ancho */
+}
+
+input.class-form-input,
+select.class-form-input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-input);
+  padding: 0.6em 0.3em;
+  border: 2px solid var(--input-border-color); /* Borde de color azul */
+  border-radius: 5px; /* Esquinas curvadas para los inputs */
+  outline: none;
+  background-color: rgba(139, 69, 19, 0.5); /* Fondo semitransparente */
+}
+
+textarea.class-form-input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-input);
+  padding: 0.6em 0.3em;
+  border: 2px solid var(--input-border-color); /* Borde de color azul */
+  border-radius: 5px; /* Esquinas curvadas para los inputs */
+  outline: none;
+  background-color: transparent;
+  resize: none;
+}
+
+.class-form-label {
+  color: var(--color-label);
+  cursor: text;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  transform: translateY(10px);
+  transition: transform 0.5s, color 0.3s;
+}
+
+.class-form-input:focus + .class-form-label,
+.class-form-input:not(:placeholder-shown) + .class-form-label,
+.interval-group > label,
+.files-group > label {
+  transform: translateY(-15px) scale(0.7);
+  transform-origin: top left;
+  color: var(--main-button-hover-dark-color);
+  cursor: pointer;
+}
+
+.interval-group {
+  margin-bottom: 20px;
+}
+
+.class-profile-div-btn {
+  width: 100%;
+  justify-content: end;
+}
+
+.class-profile-btn {
+  background-color: #8b4513;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 10px 5px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.class-profile-btn:hover {
+  background-color: #5c3317;
+  transform: scale(1.1); /* Ajusta el factor de escala según sea necesario */
+}
+
+input.class-form-input[required] + label.class-form-label:after,
+select.class-form-input[required] + label.class-form-label:after,
+textarea.class-form-input[required] + label.class-form-label:after {
+  content: "*";
+  color: var(--color-error) !important;
+}
+
+select.class-form-input {
+  font-size: 16px;
+  padding: 0.5em 0;
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 991px) {
+  .class-profile-div-btn {
+    justify-content: center;
+  }
+
+  .class-profile-btn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .class-form-group {
+    width: 90% !important;
+    margin-top: 20px;
+  }
+}
+
+/* ERRORS */
+
+.class-error-form {
+  animation: shake 0.2s ease-in-out 0s 2;
+  transition: transform 0.5s, color 0.3s;
+}
+
+.class-error-form label.class-form-label {
+  color: var(--color-error) !important;
+}
+
+.class-error-form input.class-form-input {
+  background-color: var(--color-error-background);
+  border-color: var(--color-error);
+  outline: none;
+}
+
+.class-error-form .class-error-message {
+  display: flex;
+  width: 100%;
+  position: relative;
+  font-size: 0.7em;
+  color: var(--color-error);
+  padding-left: 3px;
+}
+
+.class-link:disabled,
+.class-link:disabled:hover {
+  color: var(--color-btn-disabled);
+  cursor: not-allowed;
+  background: transparent;
+  border-color: var(--color-border-disabled);
+  box-shadow: none;
+}
+
+@keyframes shake {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    margin-left: 0.5rem;
+  }
+  75% {
+    margin-left: -0.5rem;
+  }
+  100% {
+    margin-left: 0rem;
+  }
+}
